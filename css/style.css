@@ -1,0 +1,48 @@
+.table-price td,
+.table-starryprice td {
+  box-sizing: initial;
+}
+
+.table-price td:nth-child(1) {
+  width: 10em;
+}
+
+.table-price td:nth-child(2) {
+  width: 5em;
+}
+
+.table-price td:nth-child(4) {
+  width: 3em;
+}
+
+.table-starryprice td:nth-child(1) {
+  width: 12em;
+}
+
+.table-starryprice td:nth-child(2) {
+  width: 8em;
+}
+
+.page-id-32 .l-contents {
+  background: url(http://stellacreate.local/wp-content/uploads/2020/07/bg.jpg) center 300px/cover no-repeat;
+}
+
+@media (min-width: 40em) {
+  .page-id-32 .l-contents {
+    background-position: center 400px;
+  }
+}
+@media (min-width: 64em) {
+  .page-id-32 .l-contents {
+    background-position: center 500px;
+  }
+}
+.page-id-32 .l-contents .wp-block-snow-monkey-blocks-section {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.page-id-32 .l-contents h1.c-entry__title {
+  color: white;
+}
+
+/*# sourceMappingURL=style.css.map */
