@@ -25,12 +25,13 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: ssh key generate
-        run: echo "$SSH_PRIVATE_KEY" > key && chmod 600 key
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+      - name: Install SSH key
+        uses: hiroghap1/ssh-key-action@v2
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: sv8064.xserver.jp
       - name: rsync deploy
-        run: rsync -auzrv -e "ssh -i key -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -p 10022" --delete ./.git/* tadafla@sv8064.xserver.jp:/home/tadafla/stella-create.co.jp/public_html/wp-content/plugins/my-snow-monkey/ --exclude .htaccess
+        run: rsync -vrlp -e "ssh -p 10022 -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" ./ tadafla@sv8064.xserver.jp:/home/tadafla/stella-create.co.jp/public_html/wp-content/plugins/my-snow-monkey/
 
           echo Add other actions to build,
           echo test, and deploy your project.
